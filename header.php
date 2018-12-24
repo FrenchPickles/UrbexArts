@@ -19,7 +19,7 @@ session_start();
 
 
 	<header>	
-		<nav class="navbar navbar-expand-lg navbar-dark bg-mydark">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-mynavgradient">
 
 			<a href="index.php" class="navbar-brand">
 				<img src="assets/images/logo-urbexarts-white.png" class="urbexarts-logo" alt="logo" height="50">

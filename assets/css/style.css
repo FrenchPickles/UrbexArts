@@ -19,6 +19,10 @@ a:hover {
 	background-image: linear-gradient(to right, #341b11, #2f1819, #26181d, #1c171c, #161616);
 }
 
+.bg-mynavgradient {
+	background-image: linear-gradient(to right, #341b11, #2f1819, #26181d, #1c171c, #161616);
+}
+
 .bar {
     width: 40px;
     height: 4px;
