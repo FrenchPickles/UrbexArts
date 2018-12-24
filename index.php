@@ -98,71 +98,38 @@
 		</section>
 
 		<!-- AUTHORS SECTION -->
-<!-- 		<section class="container authors mb-4">
+ 		<section class="container authors mb-4">
 
 			<h2 class="display-4">Les auteurs</h2>
 			<div class="bar"></div>
 
-			<div class="row mt-3">
-
-				<div class="col-md-6">
-
-					<div class="bg-dark card-entete">
-						<i class="fas fa-code"></i> Développeur et rédacteur
-					</div>
-					
-					<div class="card-body text-center">
-						<h5 class="card-title">Steven</h5>
-						<p class="card-text">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
-
-						<a class="btn btn-outline-dark" href="#">Instagram</a>
-						<a class="btn btn-outline-primary" href="#">Facebook</a>
-
-					</div>
-					<div class="card-bottom">
-						<div class="card-age pt-3 bg-dark">
-							<div>20</div>
-							<div><p>Ans</p></div>
-						</div>
-						<div class="card-articles pt-3 bg-warning">
-							<div>20</div>
-							<div><p>Articles posté(s)</p></div>
-						</div>
-					</div>
+			<div class="row">
+				<div class="col-md-4">
+					<article class="u--cardAuthor">
+				        <img src="https://c1.staticflickr.com/9/8763/27620942923_5761de7cd1_b.jpg" alt="Lake">
+				        <figure class="u--cardAuthor__caption">
+				          <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/user-male-icon.png" class="u--cardAuthor__profile">
+				          <h2>Steven</h2>
+				          <p>Rédacteur et développeur principal de urbexarts.fr</p>
+				          <button href="#" class="btn btn-outline-warning rounded-0">Follow</button>
+				        </figure>
+			    	</article>
 				</div>
 
-				<div class="col-md-6">
-
-					<div class="bg-dark card-entete">
-						<i class="fas fa-feather-alt"></i> Rédacteur
-					</div>
-
-					<div class="card-body text-center">
-						<h5 class="card-title">Théophile</h5>
-						<p class="card-text">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
-
-						<a class="btn btn-outline-dark" href="#">Instagram</a>
-						<a class="btn btn-outline-primary" href="#">Facebook</a>
-
-					</div>
-					<div class="card-bottom">
-						<div class="card-age pt-3 bg-dark">
-							<div>21</div>
-							<div><p>Ans</p></div>
-						</div>
-						<div class="card-articles pt-3 bg-warning">
-							<div>2</div>
-							<div><p>Articles posté(s)</p></div>
-						</div>
-					</div>
+				<div class="col-md-4">
+					<article class="u--cardAuthor">
+				        <img src="http://www.bravotv.com/sites/nbcubravotv/files/styles/blog-post--mobile/public/jet-set-urbex.jpg?itok=B5Xv_a5E&timestamp=1486532371" alt="Lake">
+				        <figure class="u--cardAuthor__caption">
+				          <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/user-male-icon.png" class="u--cardAuthor__profile">
+				          <h2>Théophile</h2>
+				          <p>Rédacteur principal de urbexarts.fr, spécialiste souterrains</p>
+				          <button href="#" class="btn btn-outline-warning rounded-0">Follow</button>
+				        </figure>
+			    	</article>
 				</div>
 
 			</div>
-		</section> -->
+		</section>
 
 	</main>
 
