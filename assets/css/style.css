@@ -1,0 +1,123 @@
+/*GENERAL*/
+body {
+	background-color: #dbdbdb;
+}
+
+a {
+	color: inherit;
+}
+
+a:hover {
+	color: inherit;
+}
+
+.bg-mydark {
+	background-image: linear-gradient(to top, #070707, #0c0c0c, #101010, #131313, #161616);
+}
+
+.bg-mygrey {
+	background-image: linear-gradient(to right, #341b11, #2f1819, #26181d, #1c171c, #161616);
+}
+
+.bar {
+    width: 40px;
+    height: 4px;
+    background-color: #262626;
+}
+
+/*AUTHORS*/
+.authors .card {
+	border: none;
+	width: 18rem;
+}
+.authors .card-bottom {
+	display: flex;
+	flex-wrap: nowrap;
+	text-align: center;
+}
+.authors .card-age {
+	width: 50%;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 800;
+	background-color: red;
+}
+.authors .card-articles {
+	width: 50%;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 800;
+	background-color: orange;
+}
+.authors .card-bottom p {
+	font-weight: 400;
+	font-size: 12px;
+	margin-top: -5px;
+}
+
+.authors .card-entete {
+	padding: 10px;
+	color: white;
+	text-align: center;
+	font-size: 11px;
+}
+
+.authors .card-text {
+	text-align: justify;
+}
+
+/*NEWSLETTER*/
+.section-newsletter h2 {
+	color: white;
+}
+
+.section-newsletter p {
+	color: grey;
+}
+
+.section-newsletter .input-group-text {
+	background-color: black;
+	border-color: #3a3a3a;
+}
+
+.section-newsletter .form-control {
+	background-color: #bdbebf;
+	border-color: #3a3a3a;
+	color: black;
+}
+
+.section-newsletter .form-control::placeholder {
+	color: black;
+}
+
+/*FOOTER*/
+footer {
+	padding-bottom: 10px;
+}
+
+.footer-social {
+	width: 100%;
+	margin: auto;
+	color: grey;
+}
+
+.footer-social span {	
+	font-size: 28px;
+	vertical-align: middle;
+}
+
+.footer-brandlogo {
+	margin: 10px;
+	width: 100px;
+	height: auto;
+}
+
+.copyright {
+	color: grey;
+}
+
+.copyright p {
+	font-size: 13px;
+	margin: 0;
+	opacity: 0.8;
+}
