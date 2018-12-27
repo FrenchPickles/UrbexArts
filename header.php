@@ -46,7 +46,7 @@ session_start();
 				</form>';
 				  } else {
 				  	echo '<form class="" action="includes/login.inc.php" method="post">
-					<input class="form-control border-0 rounded-0" type="text" name="mailuid" placeholder="Pseudo">
+					<input class="form-control border-0 rounded-0" type="text" name="mailuid" placeholder="Pseudo ou e-mail">
 					<input class="form-control border-0 rounded-0" type="password" name="pwd" placeholder="Mot de passe">
 					<button class="btn btn-outline-warning rounded-0" type="submit" name="login-submit"><i class="fa fa-plug"></i> Connexion</button>
 				</form>
