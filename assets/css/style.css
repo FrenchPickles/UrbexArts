@@ -198,3 +198,8 @@ footer {
 	margin: 0;
 	opacity: 0.8;
 }
+
+/*ARTICLE PAGE*/
+.section-article p {
+	text-align: justify;
+}
