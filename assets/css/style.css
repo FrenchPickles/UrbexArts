@@ -16,7 +16,7 @@ a:hover {
 }
 
 .bg-mygrey {
-	background-image: linear-gradient(to right, #341b11, #2f1819, #26181d, #1c171c, #161616);
+	background-image: linear-gradient(to bottom, #341b11, #2f1819, #26181d, #1c171c, #161616);
 }
 
 .bg-mynavgradient {
@@ -153,18 +153,18 @@ a:hover {
 }
 
 .section-newsletter .input-group-text {
-	background-color: black;
+	background-color: #131313;
 	border-color: #3a3a3a;
 }
 
 .section-newsletter .form-control {
-	background-color: #bdbebf;
 	border-color: #3a3a3a;
-	color: black;
+	color: #6c757d;
+	background-color: hsla(0,0%,100%,.125);
 }
 
 .section-newsletter .form-control::placeholder {
-	color: black;
+	color: #6c757d;
 }
 
 /*FOOTER*/

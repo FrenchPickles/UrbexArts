@@ -14,7 +14,7 @@
 						    <span class="input-group-text" id="basic-addon1"><i class="fas fa-paper-plane"></i></span>
 						  </div>
 						  <input type="text" class="form-control" placeholder="Votre e-mail" aria-label="Username" aria-describedby="basic-addon1">
-						  <input type="button" class="btn btn-dark border-0 rounded-0" name="" value="Valider">
+						  <input type="button" class="btn btn-outline-dark rounded-0" name="" value="Valider">
 						</div>
 	              </form>
 
