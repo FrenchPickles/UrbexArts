@@ -21,14 +21,14 @@ session_start();
 
 	<header>	
 		<nav class="navbar navbar-expand-lg navbar-dark bg-mynavgradient">
+			
+			<a href="index.php" class="navbar-brand">
+				<img src="assets/images/logo-urbexarts-white.png" class="urbexarts-logo" alt="logo" height="50">
+			</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
-			<a href="index.php" class="navbar-brand">
-				<img src="assets/images/logo-urbexarts-white.png" class="urbexarts-logo" alt="logo" height="50">
-			</a>
 
 			<div class="collapse navbar-collapse" id="navbarToggler">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
