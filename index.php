@@ -33,21 +33,24 @@
 
 				<?php
 
+					// Création de la connexion à la bdd
 					require "includes/dbh.inc.php";
 
-					$sql = "SELECT idItem, nameItem, descriptionItem, imageItem, publishdate FROM items ORDER BY publishdate desc limit 3";
+					// Requête SQL
+					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.date FROM item, image_item WHERE item.image = image_item.id ORDER BY date desc limit 3";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
-					    // output data of each row
+
+					    // Envoi des données par ligne
 					    while($row = $result->fetch_assoc()) {
 					        echo '<div class="col-md-4">
 					        		<div class="card mb-4 box-shadow">
-					  					<img class="card-img-top" src="'.$row["imageItem"].'" alt="Card image cap" style="height: 225px;">
+					  					<img class="card-img-top" src="'.$row["link"].'" alt="'.$row["alt"].'" style="height: 225px;">
 										<div class="card-body">
-											<h5 class="card-title">'.$row["nameItem"].'</h5>
-										    <p class="card-text" style="height: 80px;">'.$row["descriptionItem"].'</p>
-										    <a href="article?id='.$row['idItem'].'" class="btn btn-warning rounded-0">Voir plus</a>
+											<h5 class="card-title">'.$row["name"].'</h5>
+										    <p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
+										    <a href="article?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 										 </div>
 									</div>
 								</div>';
@@ -70,21 +73,24 @@
 
 				<?php
 
+					// Création de la connexion à la bdd
 					require "includes/dbh.inc.php";
 
-					$sql = "SELECT idItem, nameItem, descriptionItem, imageItem FROM items ORDER BY rand() desc limit 3";
+					// Requête SQL
+					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.date FROM item, image_item WHERE item.image = image_item.id  ORDER BY rand() desc limit 3";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
-					    // output data of each row
+
+					    // Envoi des données par ligne
 					    while($row = $result->fetch_assoc()) {
 					        echo '<div class="col-md-4">
 					        		<div class="card mb-4 box-shadow">
-					  					<img class="card-img-top" src="'.$row["imageItem"].'" alt="Card image cap" style="height: 225px;">
+					  					<img class="card-img-top" src="'.$row["link"].'" alt="'.$row["alt"].'" style="height: 225px;">
 										<div class="card-body">
-											<h5 class="card-title">'.$row["nameItem"].'</h5>
-										    <p class="card-text" style="height: 80px;">'.$row["descriptionItem"].'</p>
-										    <a href="article?id='.$row['idItem'].'" class="btn btn-warning rounded-0">Voir plus</a>
+											<h5 class="card-title">'.$row["name"].'</h5>
+										    <p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
+										    <a href="article?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 										 </div>
 									</div>
 								</div>';
@@ -111,7 +117,7 @@
 				          <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/user-male-icon.png" class="u--cardAuthor__profile">
 				          <h2>Steven</h2>
 				          <p>Rédacteur et développeur principal de urbexarts.fr</p>
-				          <button href="#" class="btn btn-outline-warning rounded-0">Follow</button>
+				          <a href="https://www.instagram.com/steven.fr.dlt/" class="btn btn-outline-warning rounded-0">Follow</a>
 				        </figure>
 			    	</article>
 				</div>
@@ -123,7 +129,7 @@
 				          <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/user-male-icon.png" class="u--cardAuthor__profile">
 				          <h2>Théophile</h2>
 				          <p>Rédacteur principal de urbexarts.fr, spécialiste souterrains</p>
-				          <button href="#" class="btn btn-outline-warning rounded-0">Follow</button>
+				          <a href="https://www.instagram.com/underground_coyote/" class="btn btn-outline-warning rounded-0">Follow</a>
 				        </figure>
 			    	</article>
 				</div>

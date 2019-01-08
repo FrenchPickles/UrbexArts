@@ -29,7 +29,7 @@
 		<!-- Social bar -->
 		<div class="row footer-social pt-4">
 			<div class="col-sm text-center">
-				<a href="#">
+				<a href="https://www.instagram.com/steven.fr.dlt/">
 					<span class="fab fa-instagram"></span>
 				</a>
 				<p>Rejoins nous sur instagram</p>
@@ -40,15 +40,15 @@
 		<div class="row text-center">
 			<div class="col-md-12 mb-3">
 				<a class="btn btn-outline-secondary mt-2" href="urbex.php"><i class="fas fa-house-damage"></i> Urbex</a>
-				<a class="btn btn-outline-secondary mt-2" href="Souterrains.php"><i class="fas fa-dungeon"></i> Souterrains</a>
-				<a class="btn btn-outline-secondary mt-2" href="#"><i class="fas fa-map-marker-alt"></i> Carte collaborative <span class="badge badge-secondary">Beta</span></a>
+				<a class="btn btn-outline-secondary mt-2" href="souterrains.php"><i class="fas fa-dungeon"></i> Souterrains</a>
+				<a class="btn btn-outline-secondary mt-2" href="http://map.urbexarts.fr"><i class="fas fa-map-marker-alt"></i> Carte collaborative <span class="badge badge-secondary">Beta</span></a>
 			</div>
 		</div>
 
 		<!-- Brand logo -->
 		<div class="row text-center">
 			<div class="col-md-12">
-				<a href="#">
+				<a href="index.php">
 					<img src="assets/images/logo-urbexarts-white.png" class="urbexarts-logo" alt="logo" height="50">
 				</a>
 			</div>

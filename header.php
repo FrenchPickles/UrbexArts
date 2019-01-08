@@ -40,18 +40,20 @@ session_start();
 					<?php  
 
 					  if (isset($_SESSION['userId'])) {
-					  	echo '<form class="form-inline" action="includes/logout.inc.php" method="post">
-						<button class="btn btn-outline-warning rounded-0 my-2 my-sm-0" type="submit" name="logout-submit"><i class="fa fa-sign-out-alt"></i> Déconnexion</button>
-						<a href="profil.php" class="btn btn-warning rounded-0 my-2 my-sm-0"><i class="fas fa-user-circle"></i> Profil</a>
-					</form>';
+					  	echo '
+					  	<form class="form-inline" action="includes/logout.inc.php" method="post">
+							<button class="btn btn-outline-warning rounded-0 my-2 my-sm-0" type="submit" name="logout-submit"><i class="fa fa-sign-out-alt"></i> Déconnexion</button>
+							<a href="profil.php" class="btn btn-warning rounded-0 my-2 my-sm-0"><i class="fas fa-user-circle"></i> Profil</a>
+						</form>';
 					  } else {
-					  	echo '<form class="" action="includes/login.inc.php" method="post">
-						<input class="form-control border-0 rounded-0" type="text" name="mailuid" placeholder="Pseudo ou e-mail">
-						<input class="form-control border-0 rounded-0" type="password" name="pwd" placeholder="Mot de passe">
-						<button class="btn btn-outline-warning rounded-0" type="submit" name="login-submit"><i class="fa fa-plug"></i> Connexion</button>
-					</form>
+					  	echo '
+					  	<form class="" action="includes/login.inc.php" method="post">
+							<input class="form-control border-0 rounded-0" type="text" name="mailuid" placeholder="Pseudo ou e-mail">
+							<input class="form-control border-0 rounded-0" type="password" name="pwd" placeholder="Mot de passe">
+							<button class="btn btn-outline-warning rounded-0" type="submit" name="login-submit"><i class="fa fa-plug"></i> Connexion</button>
+						</form>
 
-					<a class="btn btn-warning rounded-0" href="signup.php">Inscription</a>';
+						<a class="btn btn-warning rounded-0" href="signup.php">Inscription</a>';
 					  }
 
 					?>

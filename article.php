@@ -11,31 +11,33 @@
 			
 			<?php  
 
-			require "includes/dbh.inc.php";
-			$idarticle = $_GET['id'];
+				// Création de la connexion à la bdd
+				require "includes/dbh.inc.php";
+				$idarticle = $_GET['id'];
 
-			$sql = "SELECT * FROM items WHERE idItem = '{$idarticle}'";
-			$result = $conn->query($sql);
-			$row = $result->fetch_assoc();
+				// Requête SQL
+				$sql = "SELECT item.name, item.short_description, item.long_description, item.date, type.title, type.icon, user.pseudo, image_item.title, image_item.alt, image_item.link FROM item, type, image_item, user WHERE item.type = type.id AND item.author = user.id AND item.image = image_item.id AND item.id = '{$idarticle}'";
+				$result = $conn->query($sql);
+				$row = $result->fetch_assoc();
 
-			if ($result->num_rows > 0) {
+				if ($result->num_rows > 0) {
 
-			?>
+					// Envoi des données par ligne
+					?>
+					<h2 class="display-4">Article: <?php echo $row["name"]; ?> </h2>
+					<div class="bar"></div>
 
-				<h2 class="display-4">Article: <?php echo $row["nameItem"]; ?> </h2>
-				<div class="bar"></div>
+					<?php  
 
-			<?php  
+					echo '<p class="mt-3">'.$row['long_description'].'</p>';
 
-				echo '<p class="mt-3">'.$row['long_descriptionItem'].'</p>';
+					echo '<img src="'.$row['link'].'" class="img-fluid">';
 
-				echo '<img src="'.$row['imageItem'].'" class="img-fluid">';
-
-			}
-			
-			else {
-				header("Location: index.php");
-			}
+				}
+				
+				else {
+					header("Location: index.php");
+				}
 
 			?>
 

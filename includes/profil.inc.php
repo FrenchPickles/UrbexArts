@@ -31,7 +31,7 @@ if (isset($_POST['modify-submit'])) {
 	}
 	else {
 
-		$sql = "UPDATE users SET uidUsers = ?, emailUsers = ?, name = ?, firstname = ?, instagram = ?, description = ? WHERE idUsers = '{$_SESSION['userId']}'";
+		$sql = "UPDATE user SET pseudo = ?, email = ?, name = ?, firstname = ?, instagram = ?, description = ? WHERE id = '{$_SESSION['userId']}'";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
 			header("Location: ../profil.php?error=sqlerror");
@@ -49,7 +49,6 @@ if (isset($_POST['modify-submit'])) {
 			}
 			else {
 
-				$sql = "UPDATE users SET uidUsers = ?, emailUsers = ?, name = ?, firstname = ?, instagram = ?, description = ? WHERE idUsers = '{$_SESSION['userId']}'";
 				$stmt = mysqli_stmt_init($conn);
 				if (!mysqli_stmt_prepare($stmt, $sql)) {
 					header("Location: ../profil.php?error=sqlerror");

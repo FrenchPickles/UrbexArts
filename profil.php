@@ -11,39 +11,22 @@
 
 			<?php
 
+				// Création de la connexion à la bdd
 				require "includes/dbh.inc.php";
 
-				$sql = "SELECT * FROM users WHERE idUsers = '{$_SESSION['userId']}'";
+				// Requête SQL
+				$sql = "SELECT * FROM user, rank, image_user WHERE user.rank = rank.id AND user.image = image_user.id AND user.id = '{$_SESSION['userId']}'";
 
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
+					
+					// Envoi des données par ligne
 					$row = $result->fetch_assoc();
-/*					echo '<h1>Profil de '.$row["uidUsers"].'</h1>
-						<form action="includes/profil.inc.php" method="post" class="mb-5">
-						  <div class="form-group row">
-						    <label for="uid" class="col-sm-2 col-form-label">Pseudo</label>
-						    <div class="col-sm-10">
-						      <input type="text" class="form-control" id="uid" name="uid" value="'.$row["uidUsers"].'">
-						    </div>
-						  </div>
 
-						  <div class="form-group row">
-						    <label for="mail" class="col-sm-2 col-form-label">Email</label>
-						    <div class="col-sm-10">
-						      <input type="text" class="form-control" id="mail" name="mail" value="'.$row["emailUsers"].'">
-						    </div>
-						  </div>
-
-			  			  <button type="submit" class="btn btn-primary" name="modify-submit">Modifier</button>
-						  <button type="reset" class="btn btn-secondary">Annuler</button>
-
-						</form>
-					';*/
-
-					if (empty($row['image'])) {
+					/*if (empty($row['image'])) {
 						$row['image'] = 'http://s3.amazonaws.com/hiq-images/users/avatar640.png';
-					}
+					}*/
 
 					?>
 
@@ -55,8 +38,8 @@
 								<img class="card-img-top" src="https://media.istockphoto.com/photos/triangular-abstract-background-picture-id624878906?k=6&m=624878906&s=612x612&w=0&h=uDcbe038RdtiiHchahAbwOYfx0bkPVLfsn0NOjA0gTM=">
 							    <div class="content">
 							    	<div class="author text-center">
-							    		<img class="avatar border-white" src=<?php echo $row["image"] ?> >
-			                            <h4 class="title"><?php echo $row["uidUsers"] ?></h4>
+							    		<img class="avatar border-white" src=<?php echo $row["link"] ?> >
+			                            <h4 class="title"><?php echo $row["pseudo"] ?></h4>
 			                            <a href="#"><small><i class="fab fa-instagram"></i> 
 			                            	<?php 
 
@@ -85,7 +68,7 @@
 			                                <div class="col-md-4">
 			                                    <div class="form-group">
 			                                        <label for="uid">Pseudo</label>
-			                                        <input type="text" id="uid" name="uid" class="form-control" placeholder="Pseudo" value=<?php echo $row["uidUsers"] ?>>
+			                                        <input type="text" id="uid" name="uid" class="form-control" placeholder="Pseudo" value=<?php echo $row["pseudo"] ?>>
 			                                        <span class="required">*Champ obligatoire</span>
 			                                    </div>
 			                                </div>
@@ -93,7 +76,7 @@
 			                                <div class="col-md-8">
 			                                    <div class="form-group">
 			                                        <label for="mail">Email</label>
-			                                        <input type="email" id="mail" name="mail" class="form-control border-input" placeholder="E-mail" value=<?php echo $row["emailUsers"] ?>>
+			                                        <input type="email" id="mail" name="mail" class="form-control border-input" placeholder="E-mail" value=<?php echo $row["email"] ?>>
 			                                        <span class="required">*Champ obligatoire</span>
 			                                    </div>
 			                                </div>

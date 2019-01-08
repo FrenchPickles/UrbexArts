@@ -10,21 +10,24 @@
 
 				<?php
 
+					// Création de la connexion à la bdd
 					require "includes/dbh.inc.php";
 
-					$sql = 'SELECT idItem, nameItem, descriptionItem, imageItem, type FROM items WHERE type = "Urbex"';
+					// Requête SQL
+					$sql = 'SELECT image_item.link, item.name, item.id , item.short_description, item.date, image_item.alt, type.title FROM item, image_item, type WHERE item.image = image_item.id AND item.type = type.id AND type.title = "Urbex" ORDER BY date';
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
-					    // output data of each row
+
+					    // Envoi des données par ligne
 					    while($row = $result->fetch_assoc()) {
 					        echo '<div class="col-md-4">
 					        		<div class="card mb-4 box-shadow">
-					  					<img class="card-img-top" src="'.$row["imageItem"].'" alt="Card image cap" style="height: 225px;">
+					  					<img class="card-img-top" src="'.$row["link"].'" alt="'.$row["alt"].'" style="height: 225px;">
 										<div class="card-body">
-											<h5 class="card-title">'.$row["nameItem"].'</h5>
-										    <p class="card-text" style="height: 80px;">'.$row["descriptionItem"].'</p>
-										    <a href="article?id='.$row['idItem'].'" class="btn btn-warning rounded-0">Voir plus</a>
+											<h5 class="card-title">'.$row["name"].'</h5>
+										    <p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
+										    <a href="article?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 										 </div>
 									</div>
 								</div>';
