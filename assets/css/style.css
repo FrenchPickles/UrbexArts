@@ -224,7 +224,39 @@ footer {
     font-size: 15px;
 }
 
+.publish_author_title {
+    font-size: 25px;
+}
+
+.publish_author_row {
+    margin: 0;
+    width: auto;
+    max-width: 500px;
+    height: auto;
+}
+
+.publish_author_col_img {
+    padding: 0;
+}
+
+.publish_author_col_data {
+    color: #b7b7b7;
+    background-color: #262626;
+}
+
+.publish_author_col_data ul {
+    padding: 5px;
+    padding-top: 22px;
+    list-style: none;
+}
+
+.op-03 {
+    opacity: 0.3;
+}
+
+/*PROFIL PAGE*/
 .required {
 	color: grey;
 	font-size: 11px;
 }
+

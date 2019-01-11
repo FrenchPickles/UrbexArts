@@ -38,7 +38,7 @@
 								<img class="card-img-top" src="https://media.istockphoto.com/photos/triangular-abstract-background-picture-id624878906?k=6&m=624878906&s=612x612&w=0&h=uDcbe038RdtiiHchahAbwOYfx0bkPVLfsn0NOjA0gTM=">
 							    <div class="content">
 							    	<div class="author text-center">
-							    		<img class="avatar border-white" src=<?php echo $row["link"] ?> >
+							    		<img class="avatar border-white" src=<?php echo $row["image_user"] ?> >
 			                            <h4 class="title"><?php echo $row["pseudo"] ?></h4>
 			                            <a href="#"><small><i class="fab fa-instagram"></i> 
 			                            	<?php 
