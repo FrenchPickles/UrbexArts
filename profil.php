@@ -24,10 +24,6 @@
 					// Envoi des données par ligne
 					$row = $result->fetch_assoc();
 
-					/*if (empty($row['image'])) {
-						$row['image'] = 'http://s3.amazonaws.com/hiq-images/users/avatar640.png';
-					}*/
-
 					?>
 
 					<div class="row">
@@ -132,85 +128,159 @@
 					<?php
 				}
 
-				$conn->close();
 			?>
 
-			<div class="row">
-				<div class="col-md-12">
+			<?php
 
-					<div class="card mt-4">
-					  <h5 class="card-header">Ajout d'un nouvel article</h5>
-					  <div class="card-body">
-						<form>
-						  <div class="form-row">
-						    <div class="form-group col-md-12">
-						      <label for="inputEmail4">Titre</label>
-						      <input type="email" class="form-control" id="inputEmail4" placeholder="Titre">
-						    </div>
-						  </div>
+				// Requête SQL
+				$sql = "SELECT * FROM user, rank WHERE user.rank = rank.id AND user.id = '{$_SESSION['userId']}'";
 
-						  <div class="form-group">
-						    <label for="inputAddress">Description courte</label>
-						    <input type="text" class="form-control" id="inputAddress" placeholder="Petite description: max 30 caractères">
-						  </div>
+				$result = $conn->query($sql);
 
-						  <div class="form-group">
-						    <label for="inputAddress2">Description</label>
-						    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-						  </div>
-						  <div class="form-group">
-						    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-							</div>
-
-						  <button type="submit" class="btn btn-warning">Valider</button>
-						  <button type="submit" class="btn btn-secondary">Annuler</button>
-						</form>
-					  </div>
-					</div>
+				if ($result->num_rows > 0) {
 					
-				</div>
-			</div>
+					// Envoi des données par ligne
+					$row = $result->fetch_assoc();
 
-			<div class="row">
-				<div class="col-md-12">
+					if ($row['right_write'] == "1") {
 
-					<div class="card mt-4">
-					  <h5 class="card-header">Modifications des droits</h5>
-					  <div class="card-body">
-						<form>
-						  <div class="form-row">
-						    <div class="form-group col-md-12">
-						      <label for="inputEmail4">Choix de l'utilisateur: </label>
-						      <select class="form-control">
-								  <option>[Administrateur] Steven</option>
-								  <option>[Développeur] Pierrot</option>
-								  <option>[Membre] test</option>
-								</select>
-						    </div>
-						  </div>
-						    <div class="form-group col-md-12">
-						  <div class="form-check form-check-inline">
-							  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
-							  <label class="form-check-label" for="inlineCheckbox1">Membre</label>
-							</div>
-							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2">
-							  <label class="form-check-label" for="inlineCheckbox2">Rédacteur</label>
-							</div>
-							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="radio" id="inlineCheckbox3" value="option3">
-							  <label class="form-check-label" for="inlineCheckbox3">Administrateur</label>
-							</div>
+			?>
 
+						<div class="row">
+							<div class="col-md-12">
+
+								<div class="card mt-4">
+									<h5 class="card-header"><i class="fas fa-newspaper"></i> Ajout d'un nouvel article</h5>
+
+								  	<div class="card-body">
+										<form action="includes/new_item.inc.php" method="post" enctype="multipart/form-data">
+											<div class="form-row">
+										    	<div class="form-group col-md-12">
+										      		<label for="item_name">Nom</label>
+										      		<input type="text" class="form-control" id="item_name" name="item_name" placeholder="Nom">
+										    	</div>
+										  	</div>
+
+										  	<div class="form-group">
+										    	<label for="short_desc">Description courte</label>
+										    	<input type="text" class="form-control" id="short_desc" name="short_desc" placeholder="Petite description: max 30 caractères">
+										  	</div>
+
+										  	<div class="form-group">
+										    	<label for="desc">Description</label>
+										    	<textarea class="form-control" id="desc" name="desc" rows="3" placeholder="Description de l'article"></textarea>
+										  	</div>
+
+										  	<div class="form-group">
+										  		<label for="type">Choix du type</label>
+										      	<select class="form-control" id='type' name='type'>
+										      		<?php  
+														// Requête SQL
+														$sql = "SELECT title FROM type";
+
+														$result = $conn->query($sql);
+
+														if ($result->num_rows > 0) {
+
+					    									while($row = $result->fetch_assoc()) {
+																echo "<option>".$row['title']."</option>";
+															}
+														}
+										      		?>
+												</select>
+										  	</div>
+
+										  	<div class="form-group">
+										    	<label for="item_image">Image</label>
+										    	<input type="text" class="form-control" id="item_image" name="item_image" placeholder="URL de l'image"></textarea>
+										  	</div>
+
+										  	<div class="form-group">
+										    	<label for="item_imagetitle">Titre de l'image</label>
+										    	<input type="text" class="form-control" id="item_imagetitle" name="item_imagetitle" placeholder="Titre de l'image"></textarea>
+										  	</div>
+
+										  	<div class="form-group">
+										    	<label for="item_imagedesc">Description de l'image</label>
+										    	<input type="text" class="form-control" id="item_imagedesc" name="item_imagedesc" placeholder="Petite description de l'image"></textarea>
+										  	</div>	
+
+											<button type="submit" class="btn btn-warning" name="add-submit"><i class="fas fa-check"></i> Valider</button>
+			                            	<button type="reset" class="btn btn-secondary"><i class="fas fa-times"></i> Annuler</button>
+										</form>
+								  </div>
+								</div>
+								
+							</div>
 						</div>
-						  <button type="submit" class="btn btn-warning rounded-0">Valider</button>
-						  <button type="submit" class="btn btn-secondary rounded-0">Annuler</button>
-						</form>
-					  </div>
-					</div>
+
+			<?php
+					}
+				}
+
+					// Requête SQL
+					$sql = "SELECT * FROM user, rank WHERE user.rank = rank.id AND user.id = '{$_SESSION['userId']}'";
+
+					$result = $conn->query($sql);
+
+					if ($result->num_rows > 0) {
 					
-				</div>
-			</div>
+						// Envoi des données par ligne
+						$row = $result->fetch_assoc();
+
+						if ($row['right_admin'] == "1") {
+			?>
+
+
+							<div class="row">
+								<div class="col-md-12">
+
+									<div class="card mt-4">
+									  <h5 class="card-header">Modifications des droits</h5>
+									  <div class="card-body">
+										<form>
+										  <div class="form-row">
+										    <div class="form-group col-md-12">
+										      <label for="inputEmail4">Choix de l'utilisateur: </label>
+										      <select class="form-control">
+												  <option>[Administrateur] Steven</option>
+												  <option>[Développeur] Pierrot</option>
+												  <option>[Membre] test</option>
+												</select>
+										    </div>
+										  </div>
+										    <div class="form-group col-md-12">
+										  <div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
+											  <label class="form-check-label" for="inlineCheckbox1">Membre</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2">
+											  <label class="form-check-label" for="inlineCheckbox2">Rédacteur</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineCheckbox3" value="option3">
+											  <label class="form-check-label" for="inlineCheckbox3">Administrateur</label>
+											</div>
+
+										</div>
+										  <button type="submit" class="btn btn-warning rounded-0">Valider</button>
+										  <button type="submit" class="btn btn-secondary rounded-0">Annuler</button>
+										</form>
+									  </div>
+									</div>
+									
+								</div>
+							</div>
+
+				<?php  
+
+					}
+				}
+
+				$conn->close();
+
+				?>
 
 		</div>
 	</main>

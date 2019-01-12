@@ -37,7 +37,7 @@
 					require "includes/dbh.inc.php";
 
 					// Requête SQL
-					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.date FROM item, image_item WHERE item.image = image_item.id ORDER BY date desc limit 3";
+					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.publish_date FROM item, image_item WHERE item.image = image_item.id ORDER BY publish_date desc limit 3";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -77,7 +77,7 @@
 					require "includes/dbh.inc.php";
 
 					// Requête SQL
-					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.date FROM item, image_item WHERE item.image = image_item.id  ORDER BY rand() desc limit 3";
+					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.publish_date FROM item, image_item WHERE item.image = image_item.id  ORDER BY rand() desc limit 3";
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {

@@ -14,7 +14,7 @@
 					require "includes/dbh.inc.php";
 
 					// Requête SQL
-					$sql = 'SELECT image_item.link, item.name, item.id , item.short_description, item.date, image_item.alt, type.title FROM item, image_item, type WHERE item.image = image_item.id AND item.type = type.id AND type.title = "Souterrain" ORDER BY date';
+					$sql = 'SELECT image_item.link, item.name, item.id , item.short_description, item.publish_date, image_item.alt, type.title FROM item, image_item, type WHERE item.image = image_item.id AND item.type = type.id AND type.title = "Souterrain" ORDER BY publish_date';
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {

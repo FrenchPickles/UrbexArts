@@ -16,7 +16,7 @@
 				$idarticle = $_GET['id'];
 
 				// Requête SQL
-				$sql = "SELECT item.name, item.short_description, item.long_description, item.date, type.title, type.icon, user.pseudo, user.instagram, image_user.image_user, image_item.title, image_item.alt, image_item.link, rank.title FROM item, type, image_item, user, image_user, rank WHERE item.type = type.id AND item.author = user.id AND user.image = image_user.id AND item.image = image_item.id AND user.rank = rank.id AND item.id = '{$idarticle}'";
+				$sql = "SELECT item.name, item.short_description, item.long_description, item.publish_date, type.title, type.icon, user.pseudo, user.instagram, image_user.image_user, image_item.title, image_item.alt, image_item.link, rank.title FROM item, type, image_item, user, image_user, rank WHERE item.type = type.id AND item.author = user.id AND user.image = image_user.id AND item.image = image_item.id AND user.rank = rank.id AND item.id = '{$idarticle}'";
 				$result = $conn->query($sql);
 				$row = $result->fetch_assoc();
 
