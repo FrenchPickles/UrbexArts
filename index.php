@@ -124,7 +124,7 @@
 
 				<div class="col-md-4">
 					<article class="u--cardAuthor">
-				        <img src="http://www.bravotv.com/sites/nbcubravotv/files/styles/blog-post--mobile/public/jet-set-urbex.jpg?itok=B5Xv_a5E&timestamp=1486532371" alt="Lake">
+				        <img src="assets/images/coyotebg.jpg" alt="Lake">
 				        <figure class="u--cardAuthor__caption">
 				          <img src="assets/images/coyote.jpg" class="u--cardAuthor__profile">
 				          <h2>Théophile</h2>

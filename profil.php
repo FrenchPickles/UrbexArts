@@ -115,6 +115,13 @@
 			                                    </div>
 			                                </div>
 			                            </div>
+
+			                            <div class="row">
+			                            	<div class="col-md-12 text-center mb-3">
+			                            		<a href= <?php echo "includes/delete_account.inc.php?iduser=".$_SESSION['userId'] ?> class="unscribetxt"><i class="fas fa-trash-alt"></i> Suppression du compte</a>
+			                            	</div>
+			                            </div>
+
 			                            <div class="text-center">
 			                            	<button type="submit" class="btn btn-warning" name="modify-submit"><i class="fas fa-check"></i> Modifier</button>
 			                            	<button type="reset" class="btn btn-secondary"><i class="fas fa-times"></i> Annuler</button>

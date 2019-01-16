@@ -260,3 +260,12 @@ footer {
 	font-size: 11px;
 }
 
+.unscribetxt {
+    color: #fc2a3c;
+    font-size: 14px;
+}
+
+.unscribetxt:hover {
+    color: #6d0f17
+}
+

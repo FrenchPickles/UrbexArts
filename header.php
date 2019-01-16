@@ -8,7 +8,7 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="assets/images/favicon-logo-urbexarts.png">
-	<title>UrbexArts | Bâtiments abandonnés et souterrains !</title>
+	<title>UrbexArts | Référencement et récits d'explorations de lieux abandonnées !</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
