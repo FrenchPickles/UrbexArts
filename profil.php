@@ -36,7 +36,7 @@
 							    	<div class="author text-center">
 							    		<img class="avatar border-white" src=<?php echo $row["image_user"] ?> >
 			                            <h4 class="title"><?php echo $row["pseudo"] ?></h4>
-			                            <a href="#"><small><i class="fab fa-instagram"></i> 
+			                            <?php echo'<a href="http://www.instagram.com/'.$row['instagram'].'"><small><i class="fab fa-instagram"></i>' ?>
 			                            	<?php 
 
 			                            	if (empty($row['instagram'])) {
@@ -231,46 +231,60 @@
 						if ($row['right_admin'] == "1") {
 			?>
 
+							<div class="container mt-5">
 
-							<div class="row">
-								<div class="col-md-12">
+								<h2 class="display-4">Liste des utilisateurs</h2>
+								<div class="bar mb-3"></div>
 
-									<div class="card mt-4">
-									  <h5 class="card-header">Modifications des droits</h5>
-									  <div class="card-body">
-										<form>
-										  <div class="form-row">
-										    <div class="form-group col-md-12">
-										      <label for="inputEmail4">Choix de l'utilisateur: </label>
-										      <select class="form-control">
-												  <option>[Administrateur] Steven</option>
-												  <option>[Développeur] Pierrot</option>
-												  <option>[Membre] test</option>
-												</select>
-										    </div>
-										  </div>
-										    <div class="form-group col-md-12">
-										  <div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
-											  <label class="form-check-label" for="inlineCheckbox1">Membre</label>
-											</div>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2">
-											  <label class="form-check-label" for="inlineCheckbox2">Rédacteur</label>
-											</div>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineCheckbox3" value="option3">
-											  <label class="form-check-label" for="inlineCheckbox3">Administrateur</label>
-											</div>
+								<table id="user_table" class="table table-responsive-md table-striped table-hover mt-3" width="100%">
+								  <thead>
+								    <tr>
+								      <th class="th-sm">Pseudo</th>
+								      <th class="th-sm">E-mail</th>
+								      <th class="th-sm">Nom</th>
+								      <th class="th-sm">Prénom</th>
+								      <th class="th-sm">Grade</th>
+								      <th class="th-sm">Actions</th>
+								    </tr>
+								  </thead>
+								  <tbody>
 
-										</div>
-										  <button type="submit" class="btn btn-warning rounded-0">Valider</button>
-										  <button type="submit" class="btn btn-secondary rounded-0">Annuler</button>
-										</form>
-									  </div>
-									</div>
-									
-								</div>
+								  	<?php  
+
+									  	// Requête SQL
+										$sql = "SELECT user.id, user.pseudo, user.email, user.name, user.firstname, rank.title FROM user, rank WHERE user.rank = rank.id";
+
+										$result = $conn->query($sql);
+
+										if ($result->num_rows > 0) {
+										
+											// Envoi des données par ligne
+											while($row = $result->fetch_assoc()) {
+												echo "<tr>";
+													echo "<td>".$row['pseudo']."</td>";
+													echo "<td>".$row['email']."</td>";
+													echo "<td>".$row['name']."</td>";
+													echo "<td>".$row['firstname']."</td>";
+													echo "<td>".$row['title']."</td>";
+
+													echo "<td>";
+
+													if ($row['title'] == "Membre") {
+													
+														echo "<a href='includes/delete_user.inc.php?iduser=".$row['id']."' class='btn btn-danger'><i class='fas fa-times-circle'></i></a> ";
+
+														echo "<a href='includes/upgrade.inc.php?iduser=".$row['id']."' class='btn btn-success'><i class='fas fa-arrow-circle-up'></i></a>";
+													}
+
+													echo "</td>";
+
+												echo "</tr>";
+											}
+										}
+								  	?>
+
+								  </tbody>
+								</table>
 							</div>
 
 				<?php  

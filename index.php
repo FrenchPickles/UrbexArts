@@ -112,9 +112,9 @@
 			<div class="row">
 				<div class="col-md-4">
 					<article class="u--cardAuthor">
-				        <img src="https://c1.staticflickr.com/9/8763/27620942923_5761de7cd1_b.jpg" alt="Lake">
+				        <img src="assets/images/picklesbg.jpg" alt="Lake">
 				        <figure class="u--cardAuthor__caption">
-				          <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/user-male-icon.png" class="u--cardAuthor__profile">
+				          <img src="assets/images/pickles.jpg" class="u--cardAuthor__profile">
 				          <h2>Steven</h2>
 				          <p>Rédacteur et développeur principal de urbexarts.fr</p>
 				          <a href="https://www.instagram.com/steven.fr.dlt/" class="btn btn-outline-warning rounded-0">Follow</a>
@@ -126,7 +126,7 @@
 					<article class="u--cardAuthor">
 				        <img src="http://www.bravotv.com/sites/nbcubravotv/files/styles/blog-post--mobile/public/jet-set-urbex.jpg?itok=B5Xv_a5E&timestamp=1486532371" alt="Lake">
 				        <figure class="u--cardAuthor__caption">
-				          <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/user-male-icon.png" class="u--cardAuthor__profile">
+				          <img src="assets/images/coyote.jpg" class="u--cardAuthor__profile">
 				          <h2>Théophile</h2>
 				          <p>Rédacteur principal de urbexarts.fr, spécialiste souterrains</p>
 				          <a href="https://www.instagram.com/underground_coyote/" class="btn btn-outline-warning rounded-0">Follow</a>

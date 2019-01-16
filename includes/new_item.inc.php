@@ -44,7 +44,7 @@ if (isset($_POST['add-submit'])) {
 			exit();
 		}
 		else {
-			mysqli_stmt_bind_param($stmt, "sss", $image, $imagetitle, $imagealt);
+			mysqli_stmt_bind_param($stmt, "sss", $imagetitle, $imagealt, $image);
 			mysqli_stmt_execute($stmt);
 		}
 
