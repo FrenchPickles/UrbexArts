@@ -50,7 +50,7 @@
 										<div class="card-body">
 											<h5 class="card-title">'.$row["name"].'</h5>
 										    <p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
-										    <a href="article?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+										    <a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 										 </div>
 									</div>
 								</div>';
@@ -90,7 +90,7 @@
 										<div class="card-body">
 											<h5 class="card-title">'.$row["name"].'</h5>
 										    <p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
-										    <a href="article?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+										    <a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 										 </div>
 									</div>
 								</div>';
