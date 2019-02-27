@@ -109,5 +109,151 @@
     		});
 		});
 	</script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		
+		function cant_delete_admin() {
+			swal ( "Euh nonn !" ,  "Il est impossible de supprimer un compte administrateur" ,  "error" )
+		}
+		function cant_delete_writer() {
+			swal ( "Euh nonn !" ,  "Il est impossible de supprimer un compte rédacteur" ,  "error" )
+		}
+		function delete_user() {
+			swal ( "Supression effectué !" ,  "Le compte a été supprimé avec succès" ,  "success" )
+		}
+		function data_user_success() {
+			swal ( "Modification(s) terminée(s) !" ,  "Vos informations ont été mises à jour" ,  "success" )
+		}
+		function data_newitem_success() {
+			swal ( "Article ajouté !" ,  "L'article a été mis en ligne avec succès" ,  "success" )
+		}
+		function emptyfields() {
+			swal ( "Champ(s) manquant(s) !" ,  "Un ou plusieurs champs sont vides !" ,  "error" )
+		}
+		function invalidemail() {
+			swal ( "E-mail invalide !" ,  "L'E-mail saisi est incorrect, utilisez la syntaxe suivante: exemple@host.com !" ,  "error" )
+		}
+		function invalidusername() {
+			swal ( "Nom d'utilisateur invalide !" ,  "Le nom d'utilisateur saisi est invalide !" ,  "error" )
+		}
+		function passwordcheck() {
+			swal ( "Mot de passe incorrect !" ,  "Les deux mots de passe ne correspondent pas !" ,  "error" )
+		}
+		function usertaken() {
+			swal ( "Nom d'utilisateur existant !" ,  "Le nom d'utilisateur est déjà pris !" ,  "error" )
+		}
+		function logout() {
+			swal ( "Déconnexion réussi !" ,  "Vous avez été déconnecté" ,  "success" )
+		}
+		function login_success() {
+			swal ( "Connexion réussi !" ,  "Vous êtes désormais connecté" ,  "success" )
+		}
+		function login_fail_user() {
+			swal ( "Connexion refusé !" ,  "Le nom d'utilisateur n'existe pas" ,  "error" )
+		}
+		function login_fail_pwd() {
+			swal ( "Connexion refusé !" ,  "Le mot de passe est incorrect" ,  "error" )
+		}
+		function login_fail_emptyfields() {
+			swal ( "Connexion refusé !" ,  "Certains champs sont vides" ,  "error" )
+		}
+		function login_fail_sqlerror() {
+			swal ( "Connexion refusé !" ,  "Erreur SQL" ,  "error" )
+		}
+		function signup() {
+			swal ( "Inscription réussi !" ,  "Vous êtes maintenant inscrit, vous pouvez désormais vous connecter" ,  "success" )
+		}
+		function upgrade_admin() {
+			swal ( "Upgrade impossible !" ,  "Veuillez contacter un administrateur" ,  "error" )
+		}
+		function upgrade_writer() {
+			swal ( "Upgrade impossible !" ,  "Veuillez contacter un administrateur" ,  "error" )
+		}
+		function upgrade_success() {
+			swal ( "Upgrade réussi !" ,  "L'utilisateur a été promu !" ,  "success" )
+		}
+	</script>
+	<?php
+
+	/*SIGNUP*/
+	if (isset($_GET['signup']) AND $_GET['signup'] == "success") {
+		echo "<script>signup();</script>";
+	}
+
+	/*LOGIN*/
+	if (isset($_GET['login']) AND $_GET['login'] == "success") {
+		echo "<script>login_success();</script>";
+	}
+	if (isset($_GET['error']) AND $_GET['error'] == "nouser") {
+		echo "<script>login_fail_user();</script>";
+	}
+	if (isset($_GET['error']) AND $_GET['error'] == "wrongpassword") {
+		echo "<script>login_fail_pwd();</script>";
+	}
+	if (isset($_GET['error']) AND $_GET['error'] == "emptyfields") {
+		echo "<script>login_fail_emptyfields();</script>";
+	}
+
+	/*LOGOUT*/
+	if (isset($_GET['state']) AND $_GET['state'] == "logout") {
+		echo "<script>logout();</script>";
+	}
+
+	/*SQL ERROR*/
+	if (isset($_GET['error']) AND $_GET['error'] == "sqlerror") {
+		echo "<script>login_fail_sqlerror();</script>";
+	}
+
+	/*DELETE ACCOUNT*/
+	if (isset($_GET['error']) AND $_GET['error'] == "cant_delete_admin") {
+		echo "<script>cant_delete_admin();</script>";
+	}
+	if (isset($_GET['error']) AND $_GET['error'] == "cant_delete_writer") {
+		echo "<script>cant_delete_writer();</script>";
+	}
+	if (isset($_GET['profil']) AND $_GET['profil'] == "deleted") {
+		echo "<script>delete_user();</script>";
+	}
+	if (isset($_GET['profil']) AND $_GET['profil'] == "deletesuccessfully") {
+		echo "<script>delete_user();</script>";
+	}
+
+	/*NEW ITEM*/
+	if (isset($_GET['profil']) AND $_GET['profil'] == "success") {
+		echo "<script>data_newitem_success();</script>";
+	}
+
+	/*INVALID EMAIL*/
+	if (isset($_GET['error']) AND $_GET['error'] == "invalidmailuid") {
+		echo "<script>invalidemail();</script>";
+	}
+
+	/*INVALID USERNAME*/
+	if (isset($_GET['error']) AND $_GET['error'] == "invalidmailuid") {
+		echo "<script>invalidusername();</script>";
+	}
+
+	/*PASSWORD CHECK*/
+	if (isset($_GET['error']) AND $_GET['error'] == "passwordcheck") {
+		echo "<script>passwordcheck();</script>";
+	}
+
+	/*USER TAKEN*/
+	if (isset($_GET['error']) AND $_GET['error'] == "usertaken") {
+		echo "<script>usertaken();</script>";
+	}
+
+	/*UPGRADE*/
+	if (isset($_GET['error']) AND $_GET['error'] == "cant_upgrade_admin") {
+		echo "<script>upgrade_admin();</script>";
+	}
+	if (isset($_GET['error']) AND $_GET['error'] == "cant_upgrade_writer") {
+		echo "<script>upgrade_writer();</script>";
+	}
+	if (isset($_GET['profil']) AND $_GET['profil'] == "upgradesuccessfully") {
+		echo "<script>upgrade_success();</script>";
+	}
+
+	?>
 </body>
 </html>
