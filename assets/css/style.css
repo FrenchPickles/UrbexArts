@@ -29,6 +29,15 @@ a:hover {
     background-color: #262626;
 }
 
+.like_count {
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.like_count p {
+    margin: 0;
+}
+
 /*AUTHORS*/
 .u--cardAuthor {
 	margin-top: 25px;

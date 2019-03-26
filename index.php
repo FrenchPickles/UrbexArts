@@ -37,7 +37,29 @@
 					require "includes/dbh.inc.php";
 
 					// Requête SQL
-					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.publish_date FROM item, image_item WHERE item.image = image_item.id ORDER BY publish_date desc limit 3";
+					$sql = "SELECT 
+					item.publish_date, 
+					image_item.link,
+					image_item.alt, 
+					item.id, 
+					item.name, 
+					item.short_description,
+					count(like_system.item) as likes_count
+					FROM item 
+					 INNER JOIN image_item
+							ON item.image = image_item.id
+					 LEFT JOIN like_system
+							ON like_system.item = item.id
+					AND item.image = image_item.id
+					GROUP BY
+					item.publish_date,
+					image_item.link,
+					image_item.alt, 
+					item.id, 
+					item.name, 
+					item.short_description
+					ORDER BY publish_date desc limit 3";
+
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -49,8 +71,17 @@
 					  					<img class="card-img-top" src="'.$row["link"].'" alt="'.$row["alt"].'" style="height: 225px;">
 										<div class="card-body">
 											<h5 class="card-title">'.$row["name"].'</h5>
-										    <p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
-										    <a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+												<p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
+
+												<div class="row">
+													<div class="col-9">
+														<a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+													</div>
+													<div class="col-3 like_count">
+														<p>'.$row["likes_count"].' <i class="fas fa-heart"></i></p>
+													</div>
+												</div>
+
 										 </div>
 									</div>
 								</div>';
@@ -77,7 +108,29 @@
 					require "includes/dbh.inc.php";
 
 					// Requête SQL
-					$sql = "SELECT image_item.link, image_item.alt, item.id, item.name, item.short_description, item.publish_date FROM item, image_item WHERE item.image = image_item.id  ORDER BY rand() desc limit 3";
+					$sql = "SELECT 
+					item.publish_date, 
+					image_item.link,
+					image_item.alt, 
+					item.id, 
+					item.name, 
+					item.short_description,
+					count(like_system.item) as likes_count
+					FROM item 
+					 INNER JOIN image_item
+							ON item.image = image_item.id
+					 LEFT JOIN like_system
+							ON like_system.item = item.id
+					AND item.image = image_item.id
+					GROUP BY
+					item.publish_date,
+					image_item.link,
+					image_item.alt, 
+					item.id, 
+					item.name, 
+					item.short_description
+					ORDER BY rand() desc limit 3";
+					
 					$result = $conn->query($sql);
 
 					if ($result->num_rows > 0) {
@@ -90,7 +143,16 @@
 										<div class="card-body">
 											<h5 class="card-title">'.$row["name"].'</h5>
 										    <p class="card-text" style="height: 80px;">'.$row["short_description"].'</p>
-										    <a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+												
+												<div class="row">
+													<div class="col-9">
+														<a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+													</div>
+													<div class="col-3 like_count">
+														<p>'.$row["likes_count"].' <i class="fas fa-heart"></i></p>
+													</div>
+												</div>
+
 										 </div>
 									</div>
 								</div>';
