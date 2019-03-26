@@ -1,15 +1,26 @@
-<?php  
+<?php
 
 	require 'header.php';
 
+	require "includes/dbh.inc.php";
+
+	// Requête SQL
+	$sql = "SELECT * from like_system WHERE author = '{$_SESSION['userId']}' AND item = '{$_GET['id']}';";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+		$liked = true;
+	} else {
+		$liked = false;
+	}
 ?>
 
 	<main>
 
 		<!-- 3 LAST ARTICLES BLOCK -->
 		<section class="container section-article mt-4 mb-4">
-			
-			<?php  
+
+			<?php
 
 				// Création de la connexion à la bdd
 				require "includes/dbh.inc.php";
@@ -27,14 +38,31 @@
 					<h2 class="display-4">Article: <?php echo $row["name"]; ?> </h2>
 					<div class="bar"></div>
 
+					<p class="mt-3"><i class="fas fa-clock"></i> <?php echo $row["publish_date"]; ?> <i class="fas fa-eye ml-3"></i> Visité par 12 Membres</p>
+
 					<?php
 
 					echo '<p class="mt-3">'.$row['long_description'].'</p>';
 
 					echo '<img src="'.$row['link'].'" class="img-fluid">';
 
-					echo '
+					?>
 
+					<div class="mt-3">
+
+						<?php
+							if ($liked) {
+								echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-danger'><i class='fas fa-heart'></i></a>";
+							} else {
+								echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-secondary'><i class='far fa-heart'></i></a>";
+							}
+						?>
+
+					</div>
+
+					<?php
+
+					echo '
 					<h3 class="display-4 mt-4 publish_author_title">Publié par :</h3>
 
 					<div class="row publish_author_row">
@@ -54,7 +82,7 @@
 					</div>';
 
 				}
-				
+
 				else {
 					header("Location: index.php");
 				}
@@ -65,7 +93,7 @@
 
 	</main>
 
-<?php  
+<?php
 
 	require 'footer.php';
 
