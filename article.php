@@ -2,16 +2,18 @@
 
 	require 'header.php';
 
-	require "includes/dbh.inc.php";
+	if (isset($_SESSION['userId'])) {
+		require "includes/dbh.inc.php";
 
-	// Requête SQL
-	$sql = "SELECT * from like_system WHERE author = '{$_SESSION['userId']}' AND item = '{$_GET['id']}';";
-	$result = $conn->query($sql);
+		// Requête SQL
+		$sql = "SELECT * from like_system WHERE author = '{$_SESSION['userId']}' AND item = '{$_GET['id']}';";
+		$result = $conn->query($sql);
 
-	if ($result->num_rows > 0) {
-		$liked = true;
-	} else {
-		$liked = false;
+		if ($result->num_rows > 0) {
+			$liked = true;
+		} else {
+			$liked = false;
+		}
 	}
 ?>
 
@@ -51,10 +53,13 @@
 					<div class="mt-3">
 
 						<?php
-							if ($liked) {
-								echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-danger'><i class='fas fa-heart'></i></a>";
-							} else {
-								echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-secondary'><i class='far fa-heart'></i></a>";
+						
+		  					if (isset($_SESSION['userId'])) {
+								if ($liked) {
+									echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-danger'><i class='fas fa-heart'></i></a>";
+								} else {
+									echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-secondary'><i class='far fa-heart'></i></a>";
+								}
 							}
 						?>
 

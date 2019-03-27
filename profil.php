@@ -132,6 +132,52 @@
 			            </div>
 					</div>
 
+					<div class="container mt-5">
+
+						<h2 class="display-4">Liste de vos likes</h2>
+						<div class="bar mb-3"></div>
+
+						<table id="like_table" class="table table-responsive-md table-striped table-hover mt-3" width="100%">
+							<thead>
+							<tr>
+								<th class="th-sm">id</th>
+								<th class="th-sm">Article</th>
+								<th class="th-sm">Date</th>
+							</tr>
+							</thead>
+							<tbody>
+
+							<?php  
+
+								// Requête SQL
+								$sql = "SELECT 
+								like_system.id, 
+								item.name,
+								like_system.like_date
+								FROM like_system, item, user
+								WHERE like_system.item = item.id
+								AND like_system.author = user.id
+								AND user.id = '{$_SESSION['userId']}'";
+
+								$result = $conn->query($sql);
+
+								if ($result->num_rows > 0) {
+								
+									// Envoi des données par ligne
+									while($row = $result->fetch_assoc()) {
+										echo "<tr>";
+											echo "<td>".$row['id']."</td>";
+											echo "<td>".$row['name']."</td>";
+											echo "<td>".$row['like_date']."</td>";
+										echo "</tr>";
+									}
+								}
+							?>
+
+							</tbody>
+						</table>
+					</div>
+
 					<?php
 				}
 
@@ -153,7 +199,7 @@
 
 			?>
 
-						<div class="row">
+						<div class="row mt-5">
 							<div class="col-md-12">
 
 								<div class="card mt-4">
