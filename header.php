@@ -1,6 +1,16 @@
 
 <?php  
 session_start();
+
+$query = $_SERVER['PHP_SELF'];
+$path = pathinfo( $query );
+$filename = $path['basename'];
+
+if ($filename == "header.php"){
+	header("Location: ./index.php");
+	exit();
+}
+
 ?>
 
 <!DOCTYPE html>

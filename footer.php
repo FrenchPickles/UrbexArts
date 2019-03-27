@@ -1,4 +1,13 @@
-	
+	<?php
+		$query = $_SERVER['PHP_SELF'];
+		$path = pathinfo( $query );
+		$filename = $path['basename'];
+		
+		if ($filename == "footer.php"){
+			header("Location: ./index.php");
+			exit();
+		}
+	?>
 	<!-- NEWSLETTERS -->
 	<section class="container-fluid bg-mygrey section-newsletter">
 		<div class="row">

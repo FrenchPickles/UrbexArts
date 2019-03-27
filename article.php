@@ -40,7 +40,7 @@
 					<h2 class="display-4">Article: <?php echo $row["name"]; ?> </h2>
 					<div class="bar"></div>
 
-					<p class="mt-3"><i class="fas fa-clock"></i> <?php echo $row["publish_date"]; ?> <i class="fas fa-eye ml-3"></i> Visité par 12 Membres</p>
+					<p class="mt-3"><i class="fas fa-clock"></i> <?php echo $row["publish_date"]; ?> <i class="fas fa-heart ml-2"></i> 12</p>
 
 					<?php
 
