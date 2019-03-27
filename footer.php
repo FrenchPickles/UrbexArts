@@ -4,7 +4,7 @@
 		$filename = $path['basename'];
 		
 		if ($filename == "footer.php"){
-			header("Location: ./index.php");
+			header("Location: ./");
 			exit();
 		}
 	?>
@@ -48,8 +48,8 @@
 		<!-- Button list -->
 		<div class="row text-center">
 			<div class="col-md-12 mb-3">
-				<a class="btn btn-outline-secondary mt-2" href="urbex.php"><i class="fas fa-house-damage"></i> Urbex</a>
-				<a class="btn btn-outline-secondary mt-2" href="souterrains.php"><i class="fas fa-dungeon"></i> Souterrains</a>
+				<a class="btn btn-outline-secondary mt-2" href="urbex"><i class="fas fa-house-damage"></i> Urbex</a>
+				<a class="btn btn-outline-secondary mt-2" href="souterrains"><i class="fas fa-dungeon"></i> Souterrains</a>
 				<a class="btn btn-outline-secondary mt-2" href="http://map.urbexarts.fr"><i class="fas fa-map-marker-alt"></i> Carte collaborative <span class="badge badge-secondary">Beta</span></a>
 			</div>
 		</div>
@@ -57,7 +57,7 @@
 		<!-- Brand logo -->
 		<div class="row text-center">
 			<div class="col-md-12">
-				<a href="index.php">
+				<a href="./">
 					<img src="assets/images/logo-urbexarts-white.png" class="urbexarts-logo" alt="logo" height="50">
 				</a>
 			</div>

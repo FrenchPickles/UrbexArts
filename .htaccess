@@ -1,9 +1,3 @@
-
-<files .htaccess>
-order allow,deny
-deny from all
-</files>
-
 # Le serveur doit suivre les liens symboliques :
 Options +FollowSymlinks
 
@@ -14,9 +8,11 @@ RewriteEngine on
 # Règles de réécriture d'URL :
 #--------------------------------------------------
 
-RewriteRule ^article-([0-9]+)$   article.php?id=$1 [R=301,L]
+RewriteRule ^article-([0-9]+)$   article.php?id=$1 [L]
 RewriteRule ^$   index.php [L]
 RewriteRule ^profil$   profil.php [L]
 RewriteRule ^souterrains$   souterrains.php [L]
 RewriteRule ^urbex$   urbex.php [L]
 RewriteRule ^inscription$   signup.php [L]
+
+ErrorDocument 404 /CarteCollaborative/404.php

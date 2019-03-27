@@ -17,7 +17,7 @@
 		  } else {
 		  	echo '<h1 class="display-4">Bonjour, visiteur!</h1>';
 		  	echo '<p class="lead">Vous êtes déconnecté, connectez-vous ou inscrivez-vous pour accéder à plus de contenu !</p>';
-		  	echo '<a href="signup.php" class="btn btn-outline-warning rounded-0">Inscription</a>';
+		  	echo '<a href="inscription" class="btn btn-outline-warning rounded-0">Inscription</a>';
 		  }
 
 		  ?>
@@ -75,7 +75,7 @@
 
 												<div class="row">
 													<div class="col-9">
-														<a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+														<a href="article-'.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 													</div>
 													<div class="col-3 like_count">
 														<p>'.$row["likes_count"].' <i class="fas fa-heart"></i></p>
@@ -146,7 +146,7 @@
 												
 												<div class="row">
 													<div class="col-9">
-														<a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+														<a href="article-'.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 													</div>
 													<div class="col-3 like_count">
 														<p>'.$row["likes_count"].' <i class="fas fa-heart"></i></p>

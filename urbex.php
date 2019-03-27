@@ -56,7 +56,7 @@
 											
 											<div class="row">
 												<div class="col-9">
-													<a href="article.php?id='.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
+													<a href="article-'.$row['id'].'" class="btn btn-warning rounded-0">Voir plus</a>
 												</div>
 												<div class="col-3 like_count">
 													<p>'.$row["likes_count"].' <i class="fas fa-heart"></i></p>
