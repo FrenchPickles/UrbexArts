@@ -1,13 +1,14 @@
 <?php  
 
 	require 'header.php';
-
+	
+	if (!isset($_SESSION['userId'])) {
 ?>
 
 	<main style="background-color: #e9ecef;">
 		<div class="container">
 
-			<div class="jumbotron">
+			<div class="jumbotron mb-0">
 			  	<h1 class="display-4" style="text-align: center;">S'inscrire!</h1>
 				<form action="includes/signup.inc.php" method="post">
 					<label for="uid">Pseudo</label>
@@ -29,7 +30,23 @@
 		</div>
 	</main>
 
-<?php  
+<?php 
+	
+	} else {
+
+?>
+	<main style="background-color: #e9ecef;">
+		<div class="container">
+			<div class="jumbotron mb-0">
+				<h1 class="display-4">Bonjour, <?php echo $_SESSION['userUid']; ?>!</h1>
+				<p class="lead">Vous êtes déjà inscrit sur UrbexArts.fr !</p>
+			</div>
+		</div>
+	</main>
+
+<?php 
+
+	}
 
 	require 'footer.php';
 
