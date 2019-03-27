@@ -56,9 +56,9 @@
 						
 		  					if (isset($_SESSION['userId'])) {
 								if ($liked) {
-									echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-danger'><i class='fas fa-heart'></i></a>";
+									echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-danger rounded-0'><i class='fas fa-heart'></i> Je n'aime plus</a>";
 								} else {
-									echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-secondary'><i class='far fa-heart'></i></a>";
+									echo "<a href='includes/like.php?item={$_GET['id']}' class='btn btn-outline-danger rounded-0'><i class='far fa-heart'></i> J'aime</a>";
 								}
 							}
 						?>

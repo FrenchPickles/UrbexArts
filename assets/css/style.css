@@ -1,3 +1,28 @@
+/* SCROLLBAR */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #161616; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(46, 46, 46); 
+}
+
+@media (max-width:1400px)  {
+    .navbar {
+        background: #1C2331; !important
+    }
+}
+
 /*GENERAL*/
 body {
 	background-color: #dbdbdb;

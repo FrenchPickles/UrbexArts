@@ -6,7 +6,7 @@ require "dbh.inc.php";
 
 $author = $_SESSION['userId'];
 $item = (int)$_GET['item'];
-$date = "2019-03-26";
+$date = date("Y-m-d");;
 
 // Requête SQL
 $sql = "SELECT * from like_system WHERE author = '{$author}' AND item = '{$item}';";

@@ -8,7 +8,7 @@
     <div class="container">
         <div class="jumbotron mb-0">
             <h1 class="display-4">Page introuvable!</h1>
-            <p class="lead">La page que vous rechercher n'est pas ou plus disponible.</p>
+            <p class="lead">La page que vous recherchez n'est pas ou plus disponible.</p>
         </div>
     </div>
 </main>
