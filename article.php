@@ -29,7 +29,43 @@
 				$idarticle = $_GET['id'];
 
 				// Requête SQL
-				$sql = "SELECT item.name, item.short_description, item.long_description, item.publish_date, type.title, type.icon, user.pseudo, user.instagram, image_user.image_user, image_item.title, image_item.alt, image_item.link, rank.title FROM item, type, image_item, user, image_user, rank WHERE item.type = type.id AND item.author = user.id AND user.image = image_user.id AND item.image = image_item.id AND user.rank = rank.id AND item.id = '{$idarticle}'";
+				$sql = "SELECT 
+				item.name,
+				item.publish_date,
+				item.long_description, 
+				image_item.link,
+				image_item.alt,
+				user.pseudo,
+				user.instagram,
+				rank.title,
+				image_user.image_user,
+				image_user.alt,
+				count(like_system.item) as likes_count
+				FROM item 
+				 INNER JOIN image_item
+						ON item.image = image_item.id
+				 INNER JOIN user
+						ON item.author = user.id
+				 INNER JOIN image_user
+						ON user.image = image_user.id
+				 INNER JOIN rank
+						ON user.rank = rank.id
+				 LEFT JOIN like_system
+						ON like_system.item = item.id
+				AND item.image = image_item.id
+				WHERE item = '{$idarticle}'
+				GROUP BY
+				item.name,
+				item.publish_date,
+				item.long_description, 
+				image_item.link,
+				image_item.alt,
+				user.pseudo,
+				user.instagram,
+				rank.title,
+				image_user.image_user,
+				image_user.alt";
+
 				$result = $conn->query($sql);
 				$row = $result->fetch_assoc();
 
@@ -40,7 +76,7 @@
 					<h2 class="display-4">Article: <?php echo $row["name"]; ?> </h2>
 					<div class="bar"></div>
 
-					<p class="mt-3"><i class="fas fa-clock"></i> <?php echo $row["publish_date"]; ?> <i class="fas fa-heart ml-2"></i> 12</p>
+					<p class="mt-3"><i class="fas fa-clock"></i> <?php echo $row["publish_date"]; ?> <i class="fas fa-heart ml-2"></i> <?php echo $row["likes_count"]; ?></p>
 
 					<?php
 
