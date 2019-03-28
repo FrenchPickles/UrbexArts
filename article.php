@@ -39,7 +39,6 @@
 				user.instagram,
 				rank.title,
 				image_user.image_user,
-				image_user.alt,
 				count(like_system.item) as likes_count
 				FROM item 
 				 INNER JOIN image_item
@@ -52,19 +51,7 @@
 						ON user.rank = rank.id
 				 LEFT JOIN like_system
 						ON like_system.item = item.id
-				AND item.image = image_item.id
-				WHERE item = '{$idarticle}'
-				GROUP BY
-				item.name,
-				item.publish_date,
-				item.long_description, 
-				image_item.link,
-				image_item.alt,
-				user.pseudo,
-				user.instagram,
-				rank.title,
-				image_user.image_user,
-				image_user.alt";
+				WHERE item = '{$idarticle}'";
 
 				$result = $conn->query($sql);
 				$row = $result->fetch_assoc();
