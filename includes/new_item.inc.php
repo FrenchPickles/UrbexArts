@@ -6,11 +6,11 @@ if (isset($_POST['add-submit'])) {
 
 	require "dbh.inc.php";
 
-	$name = $_POST['item_name'];
-	$short_desc = $_POST['short_desc'];
-	$desc = $_POST['desc'];
+	$name = htmlspecialchars($_POST['item_name']);
+	$short_desc = htmlspecialchars($_POST['short_desc']);
+	$desc = htmlspecialchars($_POST['desc']);
 	$date = date("Y-m-d");
-	$author = $_SESSION['userId'];
+	$author = htmlspecialchars($_SESSION['userId']);
 	$type = $_POST['type'];
 	$image = $_POST['item_image'];
 	$imagetitle = $_POST['item_imagetitle'];

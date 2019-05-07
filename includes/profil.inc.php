@@ -7,11 +7,11 @@ if (isset($_POST['modify-submit'])) {
 	require "dbh.inc.php";
 
 	$username = $_POST['uid'];
-	$email = $_POST['mail'];
-	$name = $_POST['name'];
-	$firstname = $_POST['firstname'];
-	$instagram = $_POST['instagram'];
-	$description = $_POST['description'];
+	$email = htmlspecialchars($_POST['mail']);
+	$name = htmlspecialchars($_POST['name']);
+	$firstname = htmlspecialchars($_POST['firstname']);
+	$instagram = htmlspecialchars($_POST['instagram']);
+	$description = htmlspecialchars($_POST['description']);
 
 	if (empty($username) || empty($email)) {
 		header("Location: ../profil.php?error=emptyfields&uid=".$username."&email=".$email."&name=".$name."&firstname=".$firstname."&instagram=".$instagram."&description=".$description);
